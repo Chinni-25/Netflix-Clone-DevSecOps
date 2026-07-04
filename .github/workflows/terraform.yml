@@ -41,7 +41,7 @@ jobs:
         with:
           terraform_version: "1.13.3"
           terraform_wrapper: true
-          cli_config_credentials_token: ${{ secrets. TF_API_TOKEN }}
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Cache Terraform
         uses: actions/cache@v4
@@ -63,13 +63,13 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        if: ${{ github.event.inputs.action == 'plan' }}
+        if: ${{ github.event.input.actions == 'plan' }}
         run: terraform plan -input=false
 
       - name: Terraform Apply
-        if: ${{ github.event.inputs.action == 'apply' }}
+        if: ${{ github.event.input.actions == 'apply' }}
         run: terraform apply -auto-approve
 
       - name: Terraform destroy
-        if: ${{ github.event.inputs.action == 'destroy' }}
+        if: ${{ github.event.input.actions == 'destroy' }}
         run: terraform destroy -auto-approve
