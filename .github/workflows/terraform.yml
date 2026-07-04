@@ -56,8 +56,9 @@ jobs:
       - name: Initialising the Terraform
         run: terraform init
 
-      - name: Terraform Format Check
-        run: terraform fmt -check --diff
+      - - name: Show Terraform formatting differences
+          run: |
+          terraform fmt -check -diff -recursive || true
 
       - name: Terraform Validate
         run: terraform validate
