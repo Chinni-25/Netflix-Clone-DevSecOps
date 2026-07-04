@@ -8,3 +8,4 @@ ec2-instance-count    = 4
 ec2_instance_type     = ["t3.micro", "t3.micro", "t3.micro", "t3.micro"]
 ec2_volume_size       = 50
 ec2_volume_type       = "gp3"
+\ No newline at end of file
