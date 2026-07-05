@@ -13,7 +13,7 @@ resource "aws_instance" "ec2" {
   subnet_id              = aws_subnet.public-subnet[count.index].id
   instance_type          = var.ec2-instance-type[count.index]
 
-  key_name               = "Demo"
+  key_name               = "chinni-key"
 
   iam_instance_profile   = aws_iam_instance_profile.iam-instance-profile.name
   vpc_security_group_ids = [aws_security_group.default-ec2-sg.id]
