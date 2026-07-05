@@ -9,8 +9,8 @@ variable "pub-availability-zone" {
   type = list(string)
 }
 variable "ec2-instance-count" {}
-variable "ec2_instance_type" {
+variable "ec2-instance-type" {
   type = list(string)
 }
-variable "ec2_volume_size" {}
-variable "ec2_volume_type" {}
+variable "ec2-volume-size" {}
+variable "ec2-volume-type" {}
