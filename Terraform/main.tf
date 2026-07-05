@@ -22,9 +22,7 @@ resource "aws_instance" "ec2" {
     volume_size = var.ec2-volume-size
     volume_type = var.ec2-volume-type
   }
-}
-
-  tags = {
+   tags = {
     Name = "${local.org}-${local.project}-${local.env}-${local.instance_names[count.index]}"
     Env  = "${local.env}"
   }
