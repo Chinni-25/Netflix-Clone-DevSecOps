@@ -1,6 +1,6 @@
-name: '🔨 Infrastructure Configuring using Terraform on AWS' 
+name: '🔨 Infrastructure Configuring using Terraform on AWS'
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       action:
@@ -19,7 +19,6 @@ env:
   TF_CLOUD_ORGANIZATION: ${{ secrets.TF_CLOUD_ORGANIZATION }}
 permissions:
   contents: read
-
 
 jobs:
   infrastructure-setup-using-terraform:
@@ -56,13 +55,11 @@ jobs:
       - name: Initialising the Terraform
         run: terraform init
 
-      - name: Show formatting differences
-        run: terraform fmt -check -diff -recursive
-        continue-on-error: true
-      - name: Show repository status
-        run: |
-         pwd
-         ls -R
+      - name: Terraform Format (auto-fix)
+        run: terraform fmt -recursive
+
+      - name: Terraform Format Check
+        run: terraform fmt -check --diff
 
       - name: Terraform Validate
         run: terraform validate
